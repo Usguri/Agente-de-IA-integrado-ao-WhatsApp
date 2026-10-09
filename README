@@ -1,46 +1,117 @@
-# Agente de IA com WhatsApp
+# Agente de IA integrado ao WhatsApp
 
-O repositório contém dois aplicativos relacionados a conversas via WhatsApp,
-organizados por responsabilidade em `backend/` e `frontend/`.
+<div align="center">
 
-## Estrutura
+[![Status](https://img.shields.io/badge/status-em%20desenvolvimento-blue)](https://github.com/Usguri/Agente-de-IA-integrado-ao-WhatsApp)
+[![PHP](https://img.shields.io/badge/PHP-8.x-777BB4?logo=php&logoColor=white)](https://www.php.net/)
+[![AI](https://img.shields.io/badge/IA-Chatbot%20Inteligente-orange)](https://github.com/Usguri/Agente-de-IA-integrado-ao-WhatsApp)
+[![WhatsApp](https://img.shields.io/badge/WhatsApp-Integration-25D366)](https://www.whatsapp.com/)
 
-- `backend/chat-secundario/`: servidor Node.js/Express, integração com LDAP e
-  Oracle, servidor WebSocket em PHP/Swoole e arquivos Docker.
-- `frontend/chat-secundario/public/`: interface web estática do aplicativo
-  secundário, servida pelo Express.
-- `backend/chat-interno-whatsapp/`: aplicação PHP do chat interno, incluindo
-  integrações e dependências PHP.
-- `frontend/chat-interno-whatsapp/js/`: JavaScript da interface do chat interno.
+</div>
 
-## Executar o servidor Node.js
+Um agente inteligente para restaurantes, pensado para automatizar o atendimento via WhatsApp, responder dúvidas frequentes e apoiar o fluxo de pedidos com inteligência artificial.
 
-Requer Node.js e npm. Na raiz do repositório:
+## 🧠 Visão geral
 
-```sh
-cd backend/chat-secundario
-npm install
-npm start
+Este projeto combina comunicação em massa, automação e IA para criar um assistente digital para o setor gastronômico. O objetivo é reduzir o tempo de resposta, melhorar a experiência do cliente e aliviar a carga do atendimento humano.
+
+## 🎯 Problema resolvido
+
+Restaurantes e estabelecimentos gastronômicos normalmente enfrentam:
+
+- grande volume de mensagens no WhatsApp;
+- atendimento repetitivo e demorado;
+- dificuldade de responder dúvidas comuns de forma rápida;
+- baixa organização na captação de pedidos e informações do cliente.
+
+A solução proposta automatiza parte desse processo e entrega respostas mais ágeis e escaláveis.
+
+## ✨ Funcionalidades
+
+- atendimento automatizado por WhatsApp;
+- respostas inteligentes com IA;
+- suporte a dúvidas frequentes;
+- organização de pedidos e informações do cliente;
+- redução do esforço manual do atendimento;
+- base para expansão com catálogo, regras de negócio e integração com outros canais.
+
+## 🏗️ Arquitetura
+
+```text
+Cliente / Usuário (WhatsApp)
+          |
+          v
+     Agente de Conversa
+          |
+      +---+---+
+      |       |
+      v       v
+     IA     Regras / contexto / banco
+      |
+      v
+  Resposta personalizada
 ```
 
-O servidor inicia na porta `5000` e serve a interface de
-`frontend/chat-secundario/public/`.
+## 🛠️ Stack tecnológica
 
-## Executar com Docker Compose
+- PHP
+- WhatsApp integration
+- Inteligência artificial / processamento de linguagem
+- Lógica de automação para atendimento
+- Estrutura para gestão de contexto e fluxo de conversa
 
-Requer Docker com o comando `docker compose`:
+## 🔄 Fluxo principal
 
-```sh
-docker compose -f backend/chat-secundario/docker-compose.yml up --build
+1. O cliente entra em contato pela mensagem no WhatsApp.
+2. O agente identifica a intenção da conversa.
+3. A IA analisa o contexto e gera a resposta mais adequada.
+4. O sistema pode orientar sobre cardápio, pedidos, horários, dúvidas gerais e demais interações.
+5. Quando necessário, o atendimento humano pode assumir a conversa.
+
+## 🚀 Como executar
+
+```bash
+git clone https://github.com/Usguri/Agente-de-IA-integrado-ao-WhatsApp.git
+cd Agente-de-IA-integrado-ao-WhatsApp
 ```
 
-O Compose inicia o servidor Node.js na porta `5000` e o WebSocket PHP/Swoole na
-porta `5001`.
+Em seguida:
 
-## Aplicação PHP do chat interno
+1. configure o ambiente PHP;
+2. ajuste as variáveis de ambiente;
+3. conecte a integração com WhatsApp;
+4. configure a API/serviço de IA;
+5. execute a aplicação e teste os fluxos.
 
-A aplicação está em `backend/chat-interno-whatsapp/`. Ela requer PHP e os
-serviços externos usados pelas integrações configurados no ambiente. Sirva a
-raiz do repositório como document root para manter acessíveis os arquivos do
-frontend compartilhado; a página inicial da aplicação fica em
-`/backend/chat-interno-whatsapp/`.
+> Ajuste os passos de execução conforme a estrutura real do repositório.
+
+## 📈 Diferencial do projeto
+
+O projeto destaca-se por unir:
+
+- automação de atendimento;
+- experiência do cliente em um canal altamente utilizado;
+- uso de IA para reduzir tempo e melhorar a qualidade da resposta;
+- aplicabilidade direta em um setor de alto volume e demanda recorrente.
+
+## 📊 Impacto esperado
+
+- atendimento mais rápido;
+- redução de tarefas repetitivas;
+- melhora na experiência do cliente;
+- maior eficiência operacional do restaurante.
+
+## 🧭 Status
+
+Em desenvolvimento, com foco em atendimento inteligente, automação e experiência de usuário.
+
+## 🔜 Próximos passos
+
+- melhorar o contexto das conversas;
+- incluir catálogo e fluxo de pedidos;
+- aprimorar gestão de agendamento e confirmação;
+- expandir integrações com sistemas de gestão e operação.
+
+## 📝 Observação
+
+Este README foi estruturado para uma apresentação profissional e clara do projeto. Caso necessário, personalize detalhes finais conforme a estrutura real do código e da infraestrutura do repositorio.
