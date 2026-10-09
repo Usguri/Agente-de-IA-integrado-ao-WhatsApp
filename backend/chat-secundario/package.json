@@ -1,0 +1,22 @@
+{
+    "name": "chat-app",
+    "version": "1.0.0",
+    "description": "Simple chat application using Node.js and Socket.IO",
+    "main": "server.js",
+    "scripts": {
+        "start": "nodemon server.js"
+    },
+    "dependencies": {
+        "bootstrap": "^5.3.3",
+        "express": "^4.19.2",
+        "ldapjs": "^3.0.7",
+        "libphonenumber-js": "^1.11.8",
+        "node-fetch": "^2.7.0",
+        "oracledb": "^6.6.0",
+        "socket.io": "^4.7.5",
+        "ws": "^8.18.0"
+    },
+    "devDependencies": {
+        "nodemon": "^3.1.4"
+    }
+}

@@ -1,0 +1,46 @@
+# Agente de IA com WhatsApp
+
+O repositório contém dois aplicativos relacionados a conversas via WhatsApp,
+organizados por responsabilidade em `backend/` e `frontend/`.
+
+## Estrutura
+
+- `backend/chat-secundario/`: servidor Node.js/Express, integração com LDAP e
+  Oracle, servidor WebSocket em PHP/Swoole e arquivos Docker.
+- `frontend/chat-secundario/public/`: interface web estática do aplicativo
+  secundário, servida pelo Express.
+- `backend/chat-interno-whatsapp/`: aplicação PHP do chat interno, incluindo
+  integrações e dependências PHP.
+- `frontend/chat-interno-whatsapp/js/`: JavaScript da interface do chat interno.
+
+## Executar o servidor Node.js
+
+Requer Node.js e npm. Na raiz do repositório:
+
+```sh
+cd backend/chat-secundario
+npm install
+npm start
+```
+
+O servidor inicia na porta `5000` e serve a interface de
+`frontend/chat-secundario/public/`.
+
+## Executar com Docker Compose
+
+Requer Docker com o comando `docker compose`:
+
+```sh
+docker compose -f backend/chat-secundario/docker-compose.yml up --build
+```
+
+O Compose inicia o servidor Node.js na porta `5000` e o WebSocket PHP/Swoole na
+porta `5001`.
+
+## Aplicação PHP do chat interno
+
+A aplicação está em `backend/chat-interno-whatsapp/`. Ela requer PHP e os
+serviços externos usados pelas integrações configurados no ambiente. Sirva a
+raiz do repositório como document root para manter acessíveis os arquivos do
+frontend compartilhado; a página inicial da aplicação fica em
+`/backend/chat-interno-whatsapp/`.

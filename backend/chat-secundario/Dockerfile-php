@@ -1,0 +1,18 @@
+
+# Escolhe a imagem do PHP 8.0 CLI
+FROM php:8.0-cli
+
+# Instala dependências necessárias
+RUN apt-get update && apt-get install -y libssl-dev pkg-config libbrotli-dev
+
+# Instala a extensão Swoole
+RUN pecl install swoole && docker-php-ext-enable swoole
+
+# Define o diretório de trabalho
+WORKDIR /var/www
+
+# Copia o servidor WebSocket para /var/www no container
+COPY backend/chat-secundario/server.php /var/www/server.php
+
+# Comando para rodar o servidor WebSocket
+CMD [ "php", "server.php" ]

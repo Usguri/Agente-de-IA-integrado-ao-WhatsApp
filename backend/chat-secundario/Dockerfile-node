@@ -1,0 +1,19 @@
+# Usando a imagem Node.js como base
+FROM node:14
+
+# Criar diretório de trabalho dentro do container
+WORKDIR /app
+
+# Copiar package.json e package-lock.json para o container
+COPY backend/chat-secundario/package*.json ./
+
+# Instalar dependências do projeto, incluindo oracledb e ldapjs
+RUN npm install
+
+# Copiar o servidor e os arquivos do frontend para o container
+COPY backend/chat-secundario/server.js ./
+COPY backend/chat-secundario/router.js ./
+COPY frontend/chat-secundario/public/ /frontend/chat-secundario/public/
+
+# Comando para iniciar o servidor
+CMD ["node", "server.js"]

@@ -1,0 +1,24 @@
+services:
+  websocket:
+    container_name: websocket_container
+    build:
+      context: ../..
+      dockerfile: backend/chat-secundario/Dockerfile-php
+    ports:
+      - "5001:5001" # Porta do WebSocket no contêiner mapeada para a porta 5001 na máquina host
+    volumes:
+      - .:/var/www
+
+  node:
+    container_name: node_container
+    build:
+      context: ../..
+      dockerfile: backend/chat-secundario/Dockerfile-node
+    ports:
+      - "5000:5000" # Porta do servidor Node.js mapeada para a porta 5000 na máquina host
+    volumes:
+      - .:/app
+      - ../../frontend/chat-secundario/public:/frontend/chat-secundario/public
+    command: [ "node", "server.js" ] # Substituído nodemon por node
+    environment:
+      - NODE_ENV=development
